@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoLoop - Daftar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .btn-green {
+      background-color: #92b894;
+      color: white;
+      border-radius: 999px;
+      padding: 10px 30px;
+      font-weight: 600;
+      border: none;
+    }
+
+    .btn-green:hover {
+      background-color: #7ca37f;
+      color: white;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white overflow-hidden h-screen">
+
+  <div class="flex h-screen">
+    
+    <!-- KIRI: Gambar -->
+    <div class="w-1/ h-screen ">
+        <div class="h-full w-full">
+        <img src="gambar/Masuk.png" class="h-full w-full object-cover " />
+    </div>
+    </div>
+
+    <!-- KANAN: Formulir -->
+    <div class="flex items-center justify-center h-full p-40">
+      <div class=" w-full">
+        <h1 class="text-6xl font-bold mb-10">
+          <span class="text-8xl font-extrabold">H</span>alo, senang melihatmu lagi!
+        </h1>
+
+        <form class="space-y-4 text-sm">
+          <div class="grid grid-cols-2 gap-10">
+            <div>
+              <label class="block font-semibold mb-1 text-2xl">Alamat Email</label>
+              <input type="text" class="w-full rounded-full px-4 py-2 shadow border border-gray-300" placeholder="Masukkan nama Anda" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1 text-2xl">Kata sandi</label>
+              <input type="email" class="w-full rounded-full px-4 py-2 shadow border border-gray-300" placeholder="Masukkan email Anda" />
+            <p class="text-lk mt-1">
+            <span class="font-semibold text-1xl mb-5">Lupa kata sandi?</span>
+          </p>
+            </div>
+        
+
+        <div>
+            <label class="block font-semibold mb-5 text-2xl">Atau</label>
+
+        <button class="flex items-center gap-2 px-4 py-2 bg-white text-black font-semibold rounded-full shadow border border-gray-300 mb-10">
+            <img src="gambar/Google.png" alt="Ikon" class="w-5 h-5" />
+            <span>Daftar dengan Google</span>
+        </button>
+
+    <div class="text-start">
+        <a href="afterlogin.html" class="btn-green mb-4 d-inline-block text-decoration-none">Masuk</a>
+  </div>
+
+
+        <p class="text-sm mt-2">
+            <span class="font-semibold">Daftar</span>, jika belum mempunyai akun
+          </p>
+        </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informasi Pembayaran</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .btn-green {
+      background-color: #92b894;
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      padding: 10px 30px;
+    }
+
+    .btn-green-konfir {
+      background-color: #92b894;
+      color: white;
+      border-radius: 999px;
+      font-weight: 900;
+      border: none;
+      padding: 10px 30px;
+      margin-left: 90%;
+      margin-bottom: 5%;
+      display: block;
+    }
+
+    .btn-green:hover {
+      background-color: #7ca37f;
+    }
+
+        .btn-green-konfir:hover {
+      background-color: #7ca37f;
+    }
+
+    .btn-light-green {
+      background-color: #e5f3e5;
+      color: black;
+      border: none;
+      border-radius: 15px;
+      padding: 10px 50px;
+      font-weight: 600;
+      margin-right: 8%;
+      margin-bottom: 10%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .highlight-box {
+      border: 2px solid #92b894;
+      border-radius: 10px;
+      padding: 6px 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: inline-block;
+    }
+
+    .summary-box {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .payment-method-label {
+      background-color: #92b894;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3%;
+    }
+
+    @media (max-width: 576px) {
+      .btn-light-green {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container min-vh-100 d-flex flex-column justify-content-start pt-5 text-center">
+
+  <div class="text-start mb-4">
+    <button class="btn-green">Kembali</button>
+  </div>
+
+  <h2 class="fw-bold mb-4">Informasi Pembayaran <br></h2>
+
+  <div class="mb-2">
+    <span class="fw-bold fs-5 me-2"><br>Jumlah biaya</span>
+    <span class="highlight-box">Rp. 15.000</span>
+  </div>
+
+  <div class="summary-box mb-9 text-start" style="width: 40%; height: 50%;">
+    <p class="mb-2"><strong>Ringkasan transaksi anda</strong></p>
+    <p class="mb-2">Jl. Sumbersari No.13, Lowokwaru, Malang</p>
+    <p class="mb-2"><strong>23 kg</strong> sampah</p>
+    <p class="mb-2">Sampah non-organik</p>
+  </div>
+
+  <div class="mb-2">
+    <span class="payment-method-label">Metode pembayaran</span>
+  </div>
+
+  <div class="d-flex flex-wrap justify-content-center">
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'Tunai')">Tunai</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'Transfer Bank')">Transfer Bank</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'DANA')">DANA</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'OVO')">OVO</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'GOPAY')">GOPAY</button>
+  </div>
+
+  <div>
+    <button class="btn-green-konfir px-5 py-2">Konfirmasi</button>
+  </div>
+
+</div>
+
+<script>
+  function selectJenisPembayaran(button, jenis) {
+    document.querySelectorAll('.btn-radio').forEach(btn => {
+      btn.style.backgroundColor = '#92b894';
+    });
+    button.style.backgroundColor = '#7ca37f';
+    document.getElementById('jenisPembayaran').value = jenis;
+  }
+</script>
+</body>
+</html>

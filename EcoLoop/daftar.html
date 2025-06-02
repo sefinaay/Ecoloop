@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoLoop - Daftar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        .btn-green {
+      background-color: #92b894;
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      padding: 10px 30px;
+    }
+
+    .btn-green:hover {
+      background-color: #7ca37f;
+      color: white;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white overflow-hidden h-screen">
+
+  <div class="flex h-screen">
+    
+    <!-- KIRI: Gambar -->
+<div class="w-1/ h-screen ">
+  <div class="h-full w-full">
+    <img src="gambar/daftar.png" class="h-full w-full object-cover " />
+  </div>
+</div>
+
+    <!-- KANAN: Formulir -->
+    <div class=" flex items-center justify-center h-full p-40">
+      <div class=" w-full">
+        <h1 class="text-6xl font-bold mb-2">
+          <span class="text-8xl font-extrabold">H</span>alo, selamat datang di EcoLoop!
+        </h1>
+        <p class="text-6xl font-bold mb-6">Bergabunglah sekarang!</p>
+
+        <form class="space-y-4 text-sm">
+          <div class="grid grid-cols-2 gap-10">
+            <div>
+              <label class="block font-semibold mb-1 text-2xl">Nama</label>
+              <input type="text" class="w-full rounded-full px-4 py-2 shadow border border-gray-300" placeholder="Masukkan nama Anda" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1 text-2xl">Alamat Email</label>
+              <input type="email" class="w-full rounded-full px-4 py-2 shadow border border-gray-300" placeholder="Masukkan email Anda" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1 text-2xl">Buat kata sandi</label>
+              <input type="password" class="w-full rounded-full px-4 py-2 shadow border border-gray-300" placeholder="Masukkan kata sandi" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1 text-2xl">Ulangi kata sandi</label>
+              <input type="password" class="w-full rounded-full px-4 py-2 shadow border border-gray-300" placeholder="Ulangi kata sandi" />
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-2">
+            <input type="checkbox" class="mt-1" />
+            <label>Dengan ini anda menyetujui peraturan keamanan dan privasi kami</label>
+          </div>
+
+          <a href="afterlogin.html" class="btn-green mb-4 d-inline-block text-decoration-none"> Daftar</a>
+          
+          <br>
+          <p class="text-sm mt-2">
+            <span class="font-semibold">Masuk</span>, jika telah mempunyai akun
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
