@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Voucher Tersedia - EcoLoop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+    }
+    .header-tukar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      margin: 40px auto 0 auto;
+    }
+    .btn-back {
+      background: #82af82;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 18px;      
+      font-size: 1em;         
+      font-weight: 700;       
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      margin-bottom: 0;
+    }
+    .btn-back:hover {
+      background: #6f9e6f;
+    }
+    .poin-saya {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-weight: 700;
+      font-size: 1.3em;
+      color: #111;
+      margin-top: 8px;
+    }
+    .poin-saya .poin-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .poin-saya .poin-icon {
+      width: 28px;
+      height: 28px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .voucher-title {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: 700;
+      margin: 40px 0 32px 0;
+      letter-spacing: 0.01em;
+    }
+    .voucher-list {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 18px;               
+      width: 95%;
+      margin: 0 auto;
+      padding-bottom: 12px;
+      scrollbar-color: #bdbdbd #f5f5f5;
+      scrollbar-width: thin;
+      scroll-snap-type: x mandatory;
+    }
+    .voucher-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 240px; 
+      scroll-snap-align: start;
+    }
+    .voucher-card,
+    .voucher-card-demo {
+      background: #83AF7E;
+      border-radius: 20px;
+      border: 4px solid #e6f2e6;
+      width: 180px;             
+      min-width: 180px;
+      max-width: 180px;
+      height: 200px;            
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    /* Lingkaran pinggir tetap */
+    .voucher-card::before,
+    .voucher-card::after {
+      content: '';
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background: #fff;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .voucher-card::before {
+      left: -16px;
+    }
+    .voucher-card::after {
+      right: -16px;
+    }
+    
+    .voucher-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 8px;        
+      margin-bottom: 4px;    
+    }
+    .voucher-header img {
+      width: 110px !important;
+      height: 40px !important;
+      object-fit: contain;
+      margin: 0 auto 10px auto;
+      display: block;
+    }
+    
+    .voucher-type {
+      font-size: 1.35em;
+      font-weight: 600;
+      margin-bottom: 8px;     
+      margin-top: 0;         
+      color: #222;
+      letter-spacing: 0.01em;
+    }
+    .voucher-diskon {
+      font-size: 4em;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0;
+      margin-top: -8px;       
+      letter-spacing: -2px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 4px;
+      line-height: 1;
+    }
+    .voucher-diskon span {
+      font-size: 0.35em;
+      font-weight: 700;
+      margin-left: 2px;
+      margin-bottom: 10px;
+      position: relative;
+      top: -2px;
+    }
+    .voucher-btn {
+      display: block;
+      margin: 10px auto 0 auto;
+      background: #83AF7E;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s, color 0.2s;
+      width: auto;
+      letter-spacing: 0.01em;
+      margin-top: 12px;
+      margin-bottom: 0;
+      align-self: stretch;
+    }
+    .voucher-btn:hover {
+      background: #6f9e6f;
+      color: #fff;
+    }
+    .logo-merchant {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      margin-top: 2px;
+    }
+    .logo-gojek,
+    .logo-gojek-inline {
+      height: 1.1em;
+      vertical-align: middle;
+      margin: 0 2px 0 0;
+    }
+    .voucher-btn-demo {
+      display: block;
+      margin: 24px auto 0 auto;
+      background: #97bfa0;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 44px;
+      font-size: 1.5em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+    }
+    .voucher-btn-demo:hover {
+      background: #82af82;
+      color: #fff;
+    }
+    .voucher-list::-webkit-scrollbar {
+      height: 10px;
+    }
+    .voucher-list::-webkit-scrollbar-thumb {
+      background: #bdbdbd;
+      border-radius: 8px;
+    }
+    .voucher-list::-webkit-scrollbar-track {
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    @media (max-width: 900px) {
+      .voucher-list {
+        gap: 18px;
+      }
+      .voucher-card {
+        width: 44vw;
+        min-width: 140px;
+        max-width: 98vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .header-tukar {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100vw;
+        gap: 0;
+        margin: 24px 0 0 0;
+        padding: 0 12px;
+      }
+      .btn-back {
+        width: auto;
+        min-width: 0;
+        max-width: 70vw;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 999px;
+        font-size: 1em;
+        padding: 6px 18px;
+        margin-top: 0;
+      }
+      .poin-saya {
+        align-items: flex-end;
+        margin-top: 0;
+        margin-right: 0;
+      }
+    }
+    .voucher-card {
+      background: url('images/ticket.png') center center/cover no-repeat;
+      border: none;
+      border-radius: 0;
+      width: 180px;
+      min-width: 180px;
+      max-width: 180px;
+      height: 200px;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+      box-shadow: none;
+      margin: 0;
+      padding: 24px 16px 18px 16px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .voucher-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-tukar">
+    <button class="btn-back" onclick="window.history.back()">Kembali</button>
+    <div class="poin-saya">
+      <div class="poin-row">
+        Poin Saya
+        <img src="images/poin.png" alt="Poin" class="poin-icon">
+      </div>
+      <div style="font-size:1.1em; font-weight:700; margin-top:2px;">50.000</div>
+    </div>
+  </div>
+  <div class="voucher-title">Voucher Tersedia</div>
+  <div class="voucher-list">
+    <!-- Voucher 1 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="images/gofood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">15<span>%</span></div>
+      </div>
+      <button class="voucher-btn">Tukar Poin</button>
+    </div>
+    <!-- Voucher 2 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="images/gofood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">60<span>%</span></div>
+      </div>
+      <button class="voucher-btn">Tukar Poin</button>
+    </div>
+    <!-- Voucher 3 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="images/gocar.png" alt="gocar" class="voucher-logo">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">50<span>%</span></div>
+      </div>
+      <button class="voucher-btn">Tukar Poin</button>
+    </div>
+    <!-- Voucher 4 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="images/goride.png" alt="goride">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">30<span>%</span></div>
+      </div>
+      <button class="voucher-btn">Tukar Poin</button>
+    </div>
+    <!-- Voucher 5 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="images/gofood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">60<span>%</span></div>
+      </div>
+      <button class="voucher-btn">Tukar Poin</button>
+    </div>
+    <!-- Voucher 6 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="images/gofood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">15<span>%</span></div>
+      </div>
+      <button class="voucher-btn">Tukar Poin</button>
+    </div>
+  </div>
+</body>
+</html>    </div>
+  </div>
+</body>
+</html>
